@@ -1,276 +1,50 @@
-% abtex2-modelo-artigo.tex, v-1.9.2 laurocesar
-% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
-%
-
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-% abnTeX2: Modelo de Artigo Acadêmico em conformidade com
-% ABNT NBR 6022:2003: Informação e documentação - Artigo em publicação 
-
-% periódica científica impressa - Apresentação
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-
-\documentclass[
-	% -- opções da classe memoir --
-	article,			% indica que é um artigo acadêmico
-	11pt,				% tamanho da fonte
-	oneside,			% para impressão apenas no verso. Oposto a twoside
-	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
-	sumario=tradicional
-	]{abntex2}
+% -----------------------------------------------------------------------------
+% Configurações
+% -----------------------------------------------------------------------------
+\documentclass[12pt,oneside,a4paper,english,brazil]{abntex2} % Classe
+\usepackage{unifei}                                       % Pacote unifei
+% Gera texto aleatório
+\makeindex                                                   % Compila o índice
+% -----------------------------------------------------------------------------
 
 
-% ---
-% PACOTES
-% ---
+% -----------------------------------------------------------------------------
+% Informações da capa e folha de rosto
+% -----------------------------------------------------------------------------
+\instituicao{Universidade Federal de Itajubá - UNIFEI}
+\departamento{Instituto de Engenharia de Sistemas e Tecnologia da Informação - IESTI}
+\autor{
+Fundação Asimo\\}
+%\turma{Turma 01}
+\titulo{Regimento Interno Da Fundação Asimo}
+%\subtitulo{Modificação do pacote \abnTeX}
+\data{09/12/2023}
+\local{Itajubá}
+% \preambulo{Modelo de trabalho científico realizado em \LaTeX\ contendo
+% 		   modificações para a classe \abnTeX\ de modo a adequar as regras
+% 	   	   da Universidade Federal de Itajubá - UNIFEI}
+% \orientador{Prof. Dr. Nome do Professor}
+% -----------------------------------------------------------------------------
 
-% ---
-% Pacotes fundamentais 
-% ---
-\usepackage{lmodern}			% Usa a fonte Latin Modern
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{nomencl} 			% Lista de simbolos
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
-\usepackage{pgfplots} %gráficos
-\usepackage{subcaption}
-%\usepackage{cancel}
-%\usepackage{soul}
-\usepackage[normalem]{ulem}
-\pgfplotsset{width=7cm,compat=1.6}
-% ---
-		
-% ---
-% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-% ---
-% ---------------------
-% Pacotes ADICIONAIS
-% ---------------------
-\usepackage{listings}			% Importar e criar códigos
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
 
-\lstset{frame=tb,
-  language=Java,
-  aboveskip=3mm,
-  belowskip=3mm,
-  showstringspaces=false,
-  columns=flexible,
-  literate=
-    {ç}{{\c{c}}}1 % Cedilha
-    {á}{{\'{a}}}1 % Acentos agudos
-    {é}{{\'{e}}}1
-    {í}{{\'{i}}}1
-    {ó}{{\'{o}}}1
-    {ú}{{\'{u}}}1
-    {â}{{\^{a}}}1 % Acentos circunflexos
-    {ê}{{\^{e}}}1
-    {î}{{\^{i}}}1
-    {ô}{{\^{o}}}1
-    {û}{{\^{u}}}1
-    {à}{{\`{a}}}1 % Acentos graves
-    {è}{{\`{e}}}1
-    {ì}{{\`{i}}}1
-    {ò}{{\`{o}}}1
-    {ù}{{\`{u}}}1
-    {ã}{{\~{a}}}1 % Tils
-    {ẽ}{{\~{e}}}1
-    {ĩ}{{\~{i}}}1
-    {õ}{{\~{o}}}1
-    {ũ}{{\~{u}}}1,
-  basicstyle={\small\ttfamily},
-  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-  numbersep=6pt,                   % how far the line-numbers are from the code
-  numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
-  breaklines=true,
-  breakatwhitespace=true,
-  tabsize=3,
-  captionpos=b
-}
-\usepackage{amsmath,amssymb,mathrsfs}	% Comandos matemáticos avançados 
-\usepackage{setspace}  					% Para permitir espaçamento simples, 1 1/2 e duplo
-\usepackage{verbatim}					% Para poder usar o ambiente "comment"
-\usepackage{tabularx} 					% Para poder ter tabelas com colunas de largura auto-ajustável
-\usepackage{afterpage} 					% Para executar um comando depois do fim da página corrente
-\usepackage{url} 						% Para formatar URLs (endereços da Web)
-%Pacotes para tratar grafos ----
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage[all]{xy}
-\usepackage{subfiles}
-\usepackage{import}
-\usepackage{placeins}
-\usepackage{tikz}
-\usepackage{breqn}
-\usepackage{amsmath}
-\usepackage{amsmath, amssymb, graphics, setspace}
-%\usepackage{multicol}
-%\usepackage{import}
-\usepackage{float}
-
-% ---------------------
-% Pacotes de CITAÇÕES
-% ---------------------
-\usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}				% Citações padrão ABNT (alfa)
-%\usepackage[num]{abntex2cite}				% Citações padrão ABNT (numericas)
-% ---------------------
-% --- 
-% CONFIGURAÇÕES DE PACOTES
-% --- 
-
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
-\renewcommand{\backref}{}
-\renewcommand{\imprimircapa}{%
-\begin{capa}%
-\center
-\ABNTEXchapterfont\Large \imprimirinstituicao
-
-{\ABNTEXchapterfont\large\imprimirautor}
-\vfill
-\begin{center}
-\begin{figure}[H]
-    \centering
-    \includegraphics{logo vertical.png}
-\end{figure}
-\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
-\end{center}
-\vfill
-\large\imprimirlocal
-
-\large\imprimirdata
-\vspace*{1cm}
-\end{capa}
-}
-
-% ---
-% Informações de dados para CAPA e FOLHA DE ROSTO
-% ---
-\titulo{\textbf{Regimento Interno}}
-\instituicao{UNIFEI}
-\local{Itajubá-MG}
-\autor{{Fundação Asimo}}
-\date{22/08/2023}
-
-% Configurações de aparência do PDF final
-%  Configurações de aparência do PDF final
-% NÃO ALTERAR!!!
-
-% alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
-
-% informações do PDF
-\makeatletter
-\hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    		pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    		linkcolor=blue,          	% color of internal links
-    		citecolor=blue,        		% color of links to bibliography
-    		filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
-} 
-\makeatother
-% --- 
-
-% ---
-% compila o indice
-% ---
-\makeindex
-% ---
-
-% ---
-% Altera as margens padrões
-% ---
-\setlrmarginsandblock{2cm}{2cm}{*}
-\setulmarginsandblock{2cm}{2cm}{*}
-\checkandfixthelayout
-
-% ---
-
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
-
-% O tamanho do parágrafo é dado por:
-\setlength{\parindent}{1.2cm}
-
-% Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.15cm}  % tente também \onelineskip
-
-% Espaçamento simples
-\SingleSpacing
-
-% ----
-% Início do documento
-% ----
+% -----------------------------------------------------------------------------
+% Início do Documento
+% -----------------------------------------------------------------------------
 \begin{document}
+%\include{pretextual}    % Elementos Pré-Textuais
+\textual                % Elementos Textuais
 
-% Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
-% ----------------------------------------------------------
-% ELEMENTOS PRÉ-TEXTUAIS
-% ----------------------------------------------------------
 
-%---
-%
-% Se desejar escrever o artigo em duas colunas, descomente a linha abaixo
-% e a linha com o texto ``FIM DE ARTIGO EM DUAS COLUNAS''.
-%\twocolumn[
-  %\begin{@twocolumnfalse}
-   % \maketitle
-    %\par
-    %\subfile{resumo.tex}
-    
-    %\(\)
-    
-    %\hline
-    
-  %\end{@twocolumnfalse}]% INICIO DE ARTIGO EM DUAS COLUNAS em uma coluna
-    %
-    %---
-    % página de titulo
-    %\maketitle
-    
-    % resumo em português
-    %\par
-    %\subfile{resumo.tex}
-     % Aqui inicia as duas colunas
+% -----------------------------------------------------------------------------
+% Início do Texto
+% -----------------------------------------------------------------------------
 \imprimircapa
-%\center
-%\ABNTEXchapterfont\Large\imprimirtitulo
+\tableofcontents
+%\include{corpo}
+\include{corpo}
 
-\(\)
-%\ABNTEXchapterfont\large\imprimirautor
-
-
-%\large\imprimirdata
-    \tableofcontents
-    \newpage
-    \subfile{corpo}
-   %\bibliography{ref}
-    
+%\include{postextual}     % Elementos Pos-Textuais
+% -----------------------------------------------------------------------------
+% Fim do Documento
+% -----------------------------------------------------------------------------
 \end{document}
